@@ -849,10 +849,10 @@ def consolidate_safetensors_files_on_every_rank(
         time.time() - start_time,
     )
 
-    # Wait for all ranks to complete
-    if dist.is_available() and dist.is_initialized():
-        logger.info("Rank %d: Waiting for all ranks to complete...", rank)
-        dist.barrier()
-        logger.info("Rank %d: All ranks have completed.", rank)
-        if rank == 0:
-            logger.info("Total time taken: %.2f secs.", time.time() - start_time)
+    # # Wait for all ranks to complete
+    # if dist.is_available() and dist.is_initialized():
+    #     logger.info("Rank %d: Waiting for all ranks to complete...", rank)
+    #     dist.barrier()
+    #     logger.info("Rank %d: All ranks have completed.", rank)
+    #     if rank == 0:
+    #         logger.info("Total time taken: %.2f secs.", time.time() - start_time)
