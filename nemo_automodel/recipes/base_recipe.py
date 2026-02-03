@@ -263,8 +263,8 @@ class BaseRecipe:
                         os.path.join(path, f"{key}.pt"),
                     )
 
-        self.checkpointer.save_model(model, path, peft_config=self.peft_config, tokenizer=tokenizer)
         self.checkpointer.save_optimizer(optimizer, model, path, scheduler)
+        self.checkpointer.save_model(model, path, peft_config=self.peft_config, tokenizer=tokenizer)
         save_config(config.raw_config, path)
         if is_dist_initialized:
             torch.distributed.barrier()
